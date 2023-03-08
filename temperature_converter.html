@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter</title>
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #container {
+            text-align: center;
+            background-color: aqua;
+            padding: 50px;
+        }
+
+        .input-div {
+            display: inline-block;
+        }
+
+        .inp {
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            width: 250px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Temperature converter</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Celsius</label>
+            <br>
+            <input type="number" value="0" id="col" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label>
+            <br>
+            <input type="number" value="32" id="fah" class="inp">
+        </div>
+    </div>
+
+    <script>
+        let cel = document.getElementById("col");
+        let fah = document.getElementById("fah");
+
+        cel.addEventListener("input", function () {
+            let c = this.value;       //storing the input value inside a variable..
+            let f = (c * 9 / 5) + 32; //converting celsius to fahrenheit..
+
+            //our aim to display the fah only upto 4 digit..
+            //so we will use toFixed() method..
+            if (!Number.isInteger(f))       //isInteger function will check whether the fah is integer or not..
+            {
+                f = f.toFixed(4);         // this function will limit the decimal upto 4 digit..
+            }
+            fah.value = f;            //setting the value of fahrenheit input to the converted value..
+        });
+
+        fah.addEventListener("input", function () {
+            let f = this.value;       //storing the input value inside a variable..
+            let c = (f - 32) * 5 / 9; //converting fahrenheit to celsius..
+
+            //our aim to display the fah only upto 4 digit..
+            //so we will use toFixed() method..
+            if (!Number.isInteger(c))       //isInteger function will check whether the cel is integer or not..
+            {
+                c = c.toFixed(4);         // this function will limit the decimal upto 4 digit..
+            }
+            cel.value = c;            //setting the value of celsius input to the converted value..
+        });
+    </script>
+</body>
+

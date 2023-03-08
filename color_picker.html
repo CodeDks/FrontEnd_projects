@@ -1,0 +1,71 @@
+<!-- This project allows user to change the color the page through color picker -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color picker</title>
+    <style>
+        body {
+            background-color: wheat;
+        }
+
+        #container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 25px;
+            margin: 2px;
+            cursor: pointer;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="red" class="circle"> </div>
+        <div id="green" class="circle"> </div>
+        <div id="yellow" class="circle"> </div>
+
+    </div>
+
+    <script>
+        let red = document.getElementById("red");
+        let green = document.getElementById("green");
+        let yellow = document.getElementById("yellow");
+
+        red.addEventListener('click', function () {
+            document.body.style.backgroundColor = "red";
+        });
+
+        green.addEventListener('click', function () {
+            document.body.style.backgroundColor = "green";
+        });
+
+        yellow.addEventListener('click', function () {
+            document.body.style.backgroundColor = "yellow";
+        });
+    </script>
+</body>
+
+</html>
